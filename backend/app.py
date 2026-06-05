@@ -6,18 +6,10 @@ import io
 from services.resume_parser import extract_text_from_pdf
 from services.ai_generator import generate_email as ai_generate
 
-# ── App setup ────────────────────────────────────────────────────
 app = Flask(__name__)
 CORS(app)
 
-# ── /send-email REMOVED ──────────────────────────────────────────
-# Email sending is now handled entirely in the frontend via the
-# Gmail API + Google OAuth. No server credentials needed at all.
-# Users sign in with their own Google account and send from their
-# own Gmail inbox. See App.jsx → handleSendWithResume().
 
-
-# ── Helper: extract text from uploaded file IN MEMORY ────────────
 def extract_resume_text_from_memory(file_storage):
     """
     Reads the uploaded file into a BytesIO buffer (no disk write),
@@ -124,5 +116,10 @@ def generate():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@app.route("/")
+def home():
+    return {"status": "Backend is running successfully 🚀"}
 if __name__ == "__main__":
     app.run(debug=True)
+
+    
