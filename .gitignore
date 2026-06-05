@@ -40,3 +40,8 @@ Thumbs.db
 # =========================
 build/
 dist/
+
+venv/
+__pycache__/
+*.pyc
+node_modules/
