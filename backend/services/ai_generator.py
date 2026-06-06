@@ -28,7 +28,6 @@ def generate_email(
     content_type="email"
 ):
 
-    # Auto extract company name
     if not company_name:
         company_name = extract_company_from_email(
             recruiter_email
@@ -37,7 +36,6 @@ def generate_email(
     if not company_name:
         company_name = "your company"
 
-    # Cover Letter Prompt
     if content_type == "cover_letter":
 
         prompt = f"""
@@ -60,7 +58,6 @@ def generate_email(
         - Keep concise
         """
 
-    # Email Prompt
     else:
 
         prompt = f"""

@@ -18,7 +18,6 @@ import {
   faClockRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
-// ─── Helpers ────────────────────────────────────────────────────────────────
 
 function loadScript(src, globalKey) {
   return new Promise((resolve, reject) => {
@@ -131,7 +130,6 @@ function stripEmailHeaders(text) {
     .replace(/^\s*\n+/, "");
 }
 
-// ─── localStorage helpers ────────────────────────────────────────────────────
 
 const LS_ROLES_KEY = "job_app_recent_roles";
 const LS_RESUME_KEY = "job_app_resume";
@@ -195,14 +193,12 @@ function fileToBase64(file) {
 
 const API_BASE = "http://127.0.0.1:5000";
 
-// ─── RoleCombobox Component ──────────────────────────────────────────────────
 
 function RoleCombobox({ value, onChange, recentRoles }) {
   const [open, setOpen] = useState(false);
   const [activeIdx, setActiveIdx] = useState(-1);
   const wrapRef = useRef(null);
 
-  // Options: show all recent when empty, filtered matches when typing
   const options =
     value.trim() === ""
       ? recentRoles
@@ -212,7 +208,6 @@ function RoleCombobox({ value, onChange, recentRoles }) {
           r.toLowerCase() !== value.trim().toLowerCase()
       );
 
-  // Close on outside click
   useEffect(() => {
     function handleClickOutside(e) {
       if (wrapRef.current && !wrapRef.current.contains(e.target)) {
@@ -325,7 +320,6 @@ function RoleCombobox({ value, onChange, recentRoles }) {
   );
 }
 
-// ─── Main App ────────────────────────────────────────────────────────────────
 
 export default function App() {
   const [file, setFile] = useState(() => {
