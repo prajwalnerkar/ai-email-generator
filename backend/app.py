@@ -119,6 +119,7 @@ def generate():
 @app.route("/")
 def home():
     return {"status": "Backend is running successfully 🚀"}
+
 if __name__ == "__main__":
     app.run(debug=True)
 
